@@ -12,70 +12,69 @@ public class Mapa {
     }
 
     public void runHashMap() {
-        Map<String, String> mapa = new HashMap();
+        Map<String, String> mapa = new HashMap<>();
         mapa.put("001", "Celular");
-        mapa.put("002", "Laptop");       
+        mapa.put("002", "Laptop");
         mapa.put("003", "Celular");
         mapa.put("003", "PC");
 
+
         System.out.println(mapa);
         System.out.println(mapa.keySet());
-        
-        for (String codigo : mapa.keySet()) {
-            System.out.println(mapa.get(codigo));
-        }
 
+        for(String codigo : mapa.keySet()) {
+        System.out.println(mapa.get(codigo));
+        }
         System.out.println(mapa.get("001"));
         System.out.println(mapa.get("005"));
-    }   
-
+    
+    }
     public void runLinkedHashMap() {
-        Map<Integer, String> linkedMap = new HashMap();
-        linkedMap.put(1, "Ana");
-        linkedMap.put(2, "Maria");        
-        linkedMap.put(3, "Juan");
-        linkedMap.put(4, "Israel");
-        linkedMap.put(5, "Alexandra");
+        // Crear un mapa con clave numeros y valor nombre de personas solo 
+        // Integer - String
+        // Agregen 5 elementos e imprimir todos los VALORES
+        Map<Integer, String> linkedMap = new java.util.LinkedHashMap<>();
+        linkedMap.put(001, "Ana");
+        linkedMap.put(002, "Maria");
+        linkedMap.put(003, "Jose");
+        linkedMap.put(004, "Laura");
+        linkedMap.put(005, "Pedro");
 
-        for(String nombre : linkedMap.values()) {
+        for (String nombre : linkedMap.values()) {
             System.out.println(nombre);
         }
-        System.out.println(linkedMap.get(3));
-        System.out.println(linkedMap.get(6)); // null, no existe la clave
     }
-
     public void runTreeMap() {
-        Map<Integer, String> treeMap = new HashMap();
-        treeMap.put(3, "carro");
-        treeMap.put(6, "bicicleta");        
-        treeMap.put(1, "moto");
+        Map<Integer, String> items = new TreeMap<>();
+        items.put(3, "carro");
+        items.put(6, "bicicleta");
+        items.put(1, "moto");
+        
+        for(String item : items.values()) {
+            System.out.println(item);
+        }
 
-        System.out.println(treeMap);
-        System.out.println(treeMap.keySet());
     }
 
     public void runHashMapObj(){
-        Map<Empleado, Integer> empleados = new HashMap();
+        Map<Empleado, Integer> empleados = new HashMap<>();
+        empleados.put(new Empleado(1,"Juan", "Dev"), 1200);
+        empleados.put(new Empleado(2, "Juan", "Dev"),1500);
+        empleados.put(new Empleado(3, "Pedro", "Dev"),2000);
+        empleados.put(new Empleado(1, "Juan", "Dev"),2500);
+        empleados.put(new Empleado(1, "Diego", "Dev"),3000);
 
-        empleados.put(new Empleado("1", "Juan", "Dev"), 1200);
-        empleados.put(new Empleado("2", "Juan", "Dev"), 1500);
-        empleados.put(new Empleado("3", "Pedro", "Dev"), 2000);
-        empleados.put(new Empleado("1", "Juan", "Dev"), 2500);
-        empleados.put(new Empleado("1", "Diego", "Dev"), 3000);
-        
         for (Empleado empleado : empleados.keySet()) {
             System.out.println(empleado + " - Salario: " + empleados.get(empleado));
         }
     }
-
-    public void runtreeMapObj(){
-        Map<Empleado, Integer> empleados = new TreeMap();
-
-        empleados.put(new Empleado("1", "Juan", "Dev"), 1200);
-        empleados.put(new Empleado("2", "Juan", "Dev"), 1500);
-        empleados.put(new Empleado("3", "Pedro", "Dev"), 2000);
-        empleados.put(new Empleado("1", "Diego", "Dev"), 1200);
-        empleados.put(new Empleado("1", "Juan", "Dev"), 1200);
+    public void runTreeMapObj() {
+        Map<Empleado, Integer> empleados = new TreeMap<>();
+        empleados.put(new Empleado(1,"Juan", "Dev"), 1200);
+        empleados.put(new Empleado(2, "Maria", "Dev"),1500);
+        empleados.put(new Empleado(3, "Pedro", "Dev"),2000);
+        empleados.put(new Empleado(1, "Diego", "Dev"),1200);
+        empleados.put(new Empleado(1, "Juan", "Senior"),3000);
 
         for (Empleado empleado : empleados.keySet()) {
             System.out.println(empleado + " - Salario: " + empleados.get(empleado));
